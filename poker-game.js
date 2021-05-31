@@ -14,6 +14,7 @@ function handOut(hand) {
                 uniqueCheck = i;
             } else {
                 console.log('Please don\'t insert duplicate cards!');
+                return 'Please don\'t insert duplicate cards!';
             }
         }
         // end duplicated check
@@ -32,18 +33,22 @@ function handOut(hand) {
         if (flush) {
             if(royalStraight) {
                 console.log('You have a Royal Flush!');
+                return 'You have a Royal Flush!';
             }
             else {
                 console.log('You have a Flush!');
+                return 'You have a Flush!'
             }
         }
         else {
             if (royalStraight) {
                 console.log('You have a Royal Straight!');
+                return 'You have a Royal Straight!'
             }
     
             if (straight) {
                 console.log('You have a Straight!');
+                return 'You have a Straight!'
             }
         }
 
@@ -60,6 +65,7 @@ function handOut(hand) {
 
         if (poker) {
             console.log('You have a poker!');
+            return 'You have a Poker!';
         }
 
         const tris = duplicate === 3;
@@ -67,9 +73,12 @@ function handOut(hand) {
         if (tris) {
             if (faces[3] === faces[4]) {
                 console.log('You have a Full!');
+                return 'You have a Full!';
+                
             }
             else {
                 console.log('You have a tris!');
+                return 'You have a Tris!';
             }
         }
 
@@ -77,15 +86,18 @@ function handOut(hand) {
 
         if (pair) {
             console.log('You have a pair!');
+            return 'You have a Pair!';
         }
 
         if (!flush && !straight && !royalStraight && !poker && !tris && !pair) {
             console.log('You have a High Card!');
+            return 'You have a High Card!';
         }
         
     }
     else {
         console.log('Insert valid hand!');
+        return 'Insert valid hand!';
     }   
 
 }
@@ -104,3 +116,5 @@ Recognize the Poker Hand
 */
 
 handOut(['Th', 'Td', 'Tf', 'Tc', '2c']);
+
+module.exports = handOut;
